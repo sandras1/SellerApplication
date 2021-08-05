@@ -1,0 +1,15 @@
+django
+
+ns
+db.sqlite3
+*.log
+*.pot
+*.pyc
+_pycache_
+media
+.idea/*
+venv/
+
+
+# Backup files #
+*.bak

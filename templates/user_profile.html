@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <img style="height:200px; width:200px; border-radius:50%; margin:auto" src="{{ user.image.url }}" alt="Photo">
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <h2 class="mx-auto">Wellcome {{ request.user }}</h2>
+            </div>
+            <hr>
+            <div class="row">
+                <div style="font-size:24px; margin-left: 30px">
+                    <pre>Name: {{ user.username }}</pre>
+                    <pre>Email: {{ user.email }}</pre>
+
+                </div>
+
+            </div>
+            <form method="POST" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <fieldset class="form-group">
+                          <legend class="border-bottom mb-4">Profile Info</legend>
+
+                      </fieldset>
+                      <div class="form-group">
+                          <button class="btn btn-outline-info" type="submit">Update</button>
+                      </div>
+                </form>
+        </div>
+    </div>
+{% endblock %}

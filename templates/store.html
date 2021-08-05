@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<div class="row" xmlns="http://www.w3.org/1999/html">
+    {% for product in products %}
+    <div class="col-lg-4">
+        <img class="thumbnail" src="{{product.image.url}}">
+        <div class="box-element product">
+            <h6><strong>{{product.name}}</strong></h6>
+            <hr>
+            <input type="number" class="form-control-sm" type="text" placeholder="My Price">
+            <button class="btn btn-outline-secondary add-btn">
+                <a href="{% url 'buy' %}">
+                    Buy
+                </a>
+            </button>
+            <button data-product="{{ product.id }}" class="btn btn-outline-secondary">
+                <a href="{% url 'product_detail' product.id %}">View</a>
+
+            </button>
+
+
+            <h4 style="display: inline-block; float: right"><strong>{{product.price}}</strong></h4>
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
